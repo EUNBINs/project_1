@@ -1,0 +1,41 @@
+package com.eunbin.mysolelife
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.os.Handler
+import android.util.Log
+import com.eunbin.mysolelife.auth.IntroActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
+class SplashActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash)
+
+        auth = Firebase.auth
+
+        // 현재 유저의 uid값이 있어?없어? 그리고 없다면
+        if(auth.currentUser?.uid == null) {
+            Log.d("SplashActivity", "null")
+
+            Handler().postDelayed({
+                startActivity(Intent(this, IntroActivity::class.java))
+                finish()
+            }, 3000)
+        } else {
+            Log.d("SplashActivity", "not null")
+
+            Handler().postDelayed({
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }, 3000)
+        }
+    }
+}

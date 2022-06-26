@@ -1,0 +1,191 @@
+
+1. 로그인화면 만들기(스플래쉬)
+ -레이아웃 손보기
+ -manifest에서 intent 옮기기
+ -auth패키지 생성
+
+2.인트로 페이지 꾸미기
+ -레이아웃 색상 안바뀔때 : themes에서 "Theme.AppCompat.Light" 설정해주기
+
+3.조인, 로그인 액티비티 생성
+ - gradle에서 dataBinding 설정
+
+4. 네비게이션 생성
+ - app>resource file 생성에서 navigation으로 생성
+ - fragments 담을 패키지 생성 이후 프래그먼트 생성
+ - 우선 activity_main에서 NavHostFragment 설정 이후 프래그먼트 화면조정
+ - 이후 프래그먼트 레이아웃에서 공통 언더바<LinearLayout> 생성
+ - 이후 반복 작업
+
+5. 로그인 후 화면컨텐츠 설정
+6. 꿀팁화면에 레이아웃 및 아이콘 설정
+7. 리사이클러뷰
+ -패키지 폴더 생성
+ -레이아웃에서 리사이클러뷰 생성
+ -어댑터 class 생성
+ -item layout생성 [resource] 
+ -item list model로 형성 -> data class로 변환, 괄호는 {}가 아니라 (), 변수 및 타입 선언
+ -이후 모델링처리
+8. Guild 사용
+ -구글검색 후 소스복사해서 build.gradle 에 syn now 적용
+ - manifest에 <uses-permission android:name="android.permission.INTERNET"/> 적용
+ - adapter액티비티에서 Glide 사용(변수 선언 해줘야하고, contentlistActivity에서도 어댑터변수에 basecontext 넣어줘야함
+ -contentlistActivity 에서 imageurl 모두 채워주기
+
+9. itemClick 인터페이스 추가
+ - contentModel 에서 webUrl 변수 추가
+ -RVadapter에서 interface로 itemclick 추가
+ -contentListActivity에서 어댑터와 itemClick 변수 연결
+10. webView 생성
+ - webView를 위한 액티비티(contentShowActivity) 생성, 이후 레이아웃에서도 <webview>생성
+ - webview와 url 연결하기
+ - contentlist 에서 contentshow로 url 넘겨주기 (intent 이용)
+
+11. 직접 url 을 작성하는게 아니고, 서버에서 데이터를 받아와서 링크 연결하는법으로 코드 작성하기
+
+12. firebase에 데이터 집어넣기
+ -규칙 설정하기
+13.firebase에서 데이터 가져오기
+
+14. 아이템클릭하는 코드 수정
+
+15. 북마크 클릭하는 이벤트 생성(rvadapter액티비티)
+
+16.contents key
+ -각각의 uid에 content id 부여하기
+ - key값 변수 선언 및 추가하는 코드 넣기
+
+17. 북마크 데이터 저장
+
+18. 북마크 까맣게 칠하는 코드작성
+ - 그러려면 북마크저장 데이터를 가져와야함
+ - 북마크데이터 모델 만들기
+
+
+-----------------------------------------------------------------------
+
+19. 게시글 페이지 꾸미기 및 쓰기 기능 구현 20. 게시글 업로드
+ - 이미지 집어넣기 [프로젝트7]
+ -board 패키지 생성
+ -boardwrite.xml 글쓰는 페이지
+ -fragment_talk.xml 글쓰기 전 버튼 페이지
+ -talkFragment 에서 클릭코드 작성
+ -boardwrite.xml 꾸며주기
+ -FBRef에 boardRef 생성
+ -boardwrite.xml <layout>으로 감싸주기
+ -boardwirte액티비티에서 바인딩코드 작성 - 컨텐츠 내용을 입력시키는 코드
+ -boardmodel클래스 작성
+ -데이터베이스에 저장하는 코드 작성 FBRef 
+ -FBAuth에서 한국시간 코드 작성 Calendar.getInstance().time
+ -boardwrite.xml 에서 scrollview 생성 => Linearlayout 한개만 생성가능한 속성임 정리해줘야함
+
+22.게시글 ListView 만들기 - 작성한 게시글 불러오기
+ - talkfragment.xml에서 ListView 만들기
+ -board_list_item layout 생성[resource]
+ -boardLVAdapter 작성하기
+ - talkfragment에 adapter연결하기 
+
+23. 게시글 읽기 -1 -파이어베이스에서 데이터 가져오기
+ -파이어베이스에서 boarddata 불러오는 코드 작성 - 프레임만 가져옴
+ -TAG 변수 선언도 입력
+ -때문에 BoardListLVAdapter로 어댑터 연결하고, 직접적으로 적은 내용물들을 가져오는 코드 작성 ->title!!.text = boardList[position].title
+
+24. 게시글 보기 페이지
+ -intent를 활용해 boardlistLVAdatper와 BoardInsideActivity를 데이터를 넣어주고 가져와주기 --> 효과 : 게시물 하나 클릭시 인사이드액티비티에서 볼 수 있다
+ -boardinside.xml 꾸며주기 마무리는 <layout>으로 덮어주기 --> 액티비티에서 binding 사용해야함
+ -boardInside액티비에서 binding 해주기
+ -talk프래그먼트에서 최신순으로 업로드되도록 코드입력
+
+25. 게시글 보기 페이지 꾸미기
+ 24번에서 listview에 있는 데이터 title,content,time 들을 다른 액티비티로 전달해줘서 intent를 활용해 보여주는 방법을 했었고,
+ 여기서는 firebase에 있는 board에 대한 데이터의 id를 기반으로 다시 데이터를 받아오는 방법을 실행
+ - 우선 talkfragment에 boardKeyList 변수 선언 intent를 활용해 boardinside로 key데이터 보내기
+ - 데이터 가져오는 코드 작성하고 keylist도 reverse()선언 해줄것 -- 데이터 가져오는 코드까지 작성완료, 이제 인사이드액티비티로 가서 화면출력하도록 코드작성
+ - boardInsideActivity로 가서 binding을 활용해 각각의 데이터Area가져오기
+
+26. 게시글 이미지 업로드
+ - 이미지를 핸드폰에서 업로드할 수 있도록 권한추가를 해줘야함 -->manifest에서 external_storage권한 추가
+ - xml에서 plus버튼에 id생성
+ -BoardWriteActivity에서 plus버튼 클릭하는 코드 입력
+
+27. 게시글 이미지 파이어베이스에 저장
+ -firebase storage 생성
+ - storage의 gradle 코드 입력
+ - storage 코드 작성
+ - image key값 코드 작성 
+
+28. 게시글 이미지 다운로드
+ - lnside.xml에 다운로드할 영역 코드 작성
+
+29. 게시판 수정 삭제 - 다이얼로그 띄우기
+ - inside.xml에서 settingIcon 생성하고, inside.activity로 넘어와서 settingicon 클릭 코드생성
+ - layout에서 custom_dialog.xml 생성 [resource]
+ - showdialog 코드 생성
+
+30. 게시글 삭제 만들기
+ -key = intent.getStringExtra("key").toString()
+ -FBRef.boardRef.child(key).removeValue()
+ -난 오류없어서 예외처리 안함
+
+31. 게시글 수정 만들기-1
+ - 수정할 액티비티 생성 [BoardEdit액티비티]
+ - boardedit.xml에 boardwrite.xml 코드 가져다 붙이고
+ - boardlnside액티비티에서 intent 코드 작성 --> edit액티비티로 넘겨주는 코드와 key값도 같이 넘겨주는 코드
+ -boardEdit에서 boardData를 가져오고, binding으로 title,contentaArea 데이터 가져와서 연결해주기
+ - 마찬가지로 imageData도 가져와서 데이터 연결해주기
+ -------> 여기까지하면 데이터 수정하는거까지 가능, 입력하고, 수정완료까지는 미완성
+
+32. 게시글 수정 만들기-2
+ - 수정한 데이터 파이어베이스에 집어넣기
+ -uid 변수도 선언하여 값을 가져오고 FBRef로 titleArea, contentArea, writerUid,getTime 집어넣기
+
+33. 로그아웃 만들기
+ -setting패키지 생성
+ -setting.xml 꾸며주고
+ -setting.액티비티에서 로그아웃 코드 생성
+ -main액티비티.xml에서 main_menu 아이디 생성
+ -main액티비티 코드작성
+ - setting액티비티 코드작성
+
+34. 마나 게시글 수정/삭제 가능하도록 하기
+ -inside.xml에서 settingIcon을 invisible로 설정하기 --> 남은 안보이고, 내가 쓴 게시물에만 보여서 수정/삭제 가능하게 하도록
+ -내가 쓴 게시물은 따로 색깔표시하기
+  -> boardlistitem.xml 에서 LinearLayout id부여하고, boardListLVAdapter에서 색상부여하는 코드 작성
+
+35.게시판 댓글 만들기 - 레이아웃 꾸미기
+ - board_inside.xml scrollview로 감싸주고, listview 만들기
+ - 게시글 클릭했을때, image가 따로 업로드가 안된 게시글은 imageArea 따로 숨겨주는 기능 넣기
+  ->insideActivity에서 binding.getImageArea.isVisible = false
+ - scrollview 전체를 relativeLayout으로 감싸주기
+ - 그후 LinearLayout 생성으로 댓글칸 생성
+
+36. 댓글 입력하기
+ -FBRef에서 comment 레퍼런스 생성
+ -BoardInside액티비티에서 insertComment 생성
+ -comment 패키지 생성 -> 그안에 comment 모델 생성
+ -Inside액티비티 안에 FBRef 선언하고, binding.coomentArea까지 입력 
+
+37. 댓글 불러오기
+ -comment_list_item.xml 생성
+ -commentadapter액티비티 생성하고 작성
+ -boardInsideActivity에서 getCommentData로 comment데이터 가져오는 코드 작성
+
+
+38. 레이아웃 나머지 정리 -1
+ - 레이아웃 다듬고
+ - storeFragment에서 webview 링크 연결 코드작성
+
+39. 레이아웃 나머지 정리 -2
+ - fragment_home.xml 꾸며주기
+
+
+
+
+
+
+
+
+
+
+
+
