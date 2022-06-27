@@ -53,7 +53,6 @@
 
 
 - ** Auth 로그인 기능 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/auth/IntroActivity.kt) 
--
   
 
 - ** 앱 기본 화면 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/HomeFragment.kt)
@@ -62,36 +61,38 @@
 ![북마크화면](https://user-images.githubusercontent.com/103995985/175892726-69a23423-f00f-4f05-8774-a0eae8e79677.png)
 ![북마크저장화면](https://user-images.githubusercontent.com/103995985/175892759-74b9240d-52a9-42d4-b9db-cd87329b2909.png)
 
-- ** 팁에서 북마크 체크인 ** :pushpin: [코드 확인]()
+- **각각의 카테고리에 컨텐츠데이터 넣어주기 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/contentsList/ContentListActivity.kt)
   
-- ** 북마크 카테고리에 북마크목록 저장 **
+- ** 북마크 카테고리에 북마크목록 저장 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/BookmarkFragment.kt)
 
   
-
-  <br>
 ### 4.4. 웹컨텐츠로 연결
 ![카테고리화면](https://user-images.githubusercontent.com/103995985/175893463-f1fcca32-5122-486b-b2bc-b1a9cdede6ae.png)
 ![웹뷰화면](https://user-images.githubusercontent.com/103995985/175893493-944f207a-7d5d-41c9-8c21-01bead041687.png)
 
-- **   
-
+- ** 스토어 이미지바 클릭시 웹뷰로 이동 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/StoreFragment.kt)
   
+  
+
 
 ### 4.5. 게시판 생성, 삭제, 수정
   ![게시판](https://user-images.githubusercontent.com/103995985/175895032-983abde5-2ab1-451d-8d9a-63cad7b5331b.png) ![내가쓴게시글](https://user-images.githubusercontent.com/103995985/175895070-4c93fc71-82e6-4cc7-94a4-79c74cc220f2.png)
 
   
+  
+- ** 게시판 목록 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/TalkFragment.kt)
+  
 ![게시글](https://user-images.githubusercontent.com/103995985/175895390-3aa7bb3b-d15e-4cf1-b489-a6f85a2a8f15.png) ![게시글수정삭제](https://user-images.githubusercontent.com/103995985/175895407-32d71d99-0b1b-4228-a873-b59321a2cdac.png)
 
+  
+- ** 타인이 쓴 게시물과 내가 쓴 게시물 분리 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/board/BoardInsideActivity.kt)
 
 ### 4.6. 댓글 기능
 ![댓글1](https://user-images.githubusercontent.com/103995985/175895593-1042eeba-1939-4dfc-bd5c-259a7b79218f.png) ![댓글2](https://user-images.githubusercontent.com/103995985/175895614-c41b5e53-7fdd-4e4f-a0d2-3bd250810543.png)
 
 
-
+- ** 게시물에 댓글 기능 ** :pushpin: [코드 확인]()
   
-
-
 
 
 
