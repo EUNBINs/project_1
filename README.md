@@ -45,16 +45,26 @@
 
 ### 4.1. 메인 화면 & 로그인 화면
   
-![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png) ![로그인화면](https://user-images.githubusercontent.com/103995985/175879372-5719623a-9272-47ea-bbfc-098932ac8155.png)
+![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png)![로그인화면](https://user-images.githubusercontent.com/103995985/175879372-5719623a-9272-47ea-bbfc-098932ac8155.png)
 
 
-  - **요청 처리** :pushpin: [코드 확인]()
-
-
+<br>
 - ** Auth 로그인 기능 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/auth/IntroActivity.kt) 
-  
+
+파이어베이스에서 FirebaseAuth 객체의 공유 인스턴스를 가져와 익명로그인을 가능하게 하고, binding을 사용하여 각 버튼을 누를 시, 
+
+연결된 액티비티(로그인이나 회원가입)로 화면이 전환됩니다.
+
+로그인이 성공하게 되면, intent.flag를 통해 메인액티비티로 연결합니다.
 
 - ** 앱 기본 화면 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/HomeFragment.kt)
+<br>
+navigation 구현을 통해 하단 imageview 바 마다 각각의 fragment로 연결시켜줍니다.
+
+앱의 기본 메인화면이기 때문에 모든 카테고리와, 카테고리의 데이터, 게시판데이터들을 가져옵니다.
+
+카테고리의 데이터는 layoutManager = GridLayoutManager(requireContext(), 2) 를 선언하여 2줄로 나열해 공간을 활용하여 보여주도록 합니다.
+
 
 ### 4.2. 북마크 체크인
 ![북마크화면](https://user-images.githubusercontent.com/103995985/175892726-69a23423-f00f-4f05-8774-a0eae8e79677.png) ![북마크저장화면](https://user-images.githubusercontent.com/103995985/175892759-74b9240d-52a9-42d4-b9db-cd87329b2909.png)
