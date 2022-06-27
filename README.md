@@ -20,40 +20,67 @@
 </br>
 
 ## 3. 핵심 기능
-이 서비스의 핵심 기능은 컨텐츠 등록 기능입니다.  
-사용자는 단지 컨텐츠의 카테고리를 선택하고, URL만 입력하면 끝입니다.  
-이 단순한 기능의 흐름을 보면, 서비스가 어떻게 동작하는지 알 수 있습니다.  
+> Firebase의 Auth를 이용한 로그인, 로그아웃 기능
+>
+> Firebase의 Database와 Storage 를 사용해 게시글 및 이미지를 생성, 읽기, 수정, 삭제 기능을 구현
+>
+> Webview를 활용해 앱을 통해 웹상에 있는 컨텐츠와 연결을 도와주고, 북마크하는 기능
+
+
+<br>
+이 앱은 로그인을 통해 앱을 접속하고, 자취생을 위한 정보를 웹상의 컨텐츠와 연결을 돕고, 이용자들끼리 게시판을 통해
+
+게시글 업로드를 통해 정보를 공유하며, 댓글기능으로 의사소통을 가능하게 합니다.
+
+또한, 북마크 기능으로 유용한 웹컨텐츠는 저장을 통하여 편리하게 볼 수 있도록 도와줍니다.
+
+
+
+
+
 
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 4.1. 전체 흐름
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow1.png)
+### 4.1. 메인 화면 & 로그인 화면
+  
+![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png)
+![로그인화면](https://user-images.githubusercontent.com/103995985/175879372-5719623a-9272-47ea-bbfc-098932ac8155.png)
 
-### 4.2. 사용자 요청
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_vue.png)
 
-- **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/Integerous/goQuality/blob/b587bbff4dce02e3bec4f4787151a9b6fa326319/frontend/src/components/PostInput.vue#L67)
-  - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
-  - URL의 모양새가 아닌 경우, 에러 메세지를 띄웁니다.
+  - **요청 처리** :pushpin: [코드 확인]()
 
-- **Axios 비동기 요청** :pushpin: [코드 확인]()
-  - URL의 모양새인 경우, 컨텐츠를 등록하는 POST 요청을 비동기로 날립니다.
 
-### 4.3. Controller
+- ** Auth 로그인 기능 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/auth/IntroActivity.kt) 
+-
+  
 
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
+- ** 앱 기본 화면 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/HomeFragment.kt)
+
+### 4.2. 북마크 체크인
+![북마크화면](https://user-images.githubusercontent.com/103995985/175892726-69a23423-f00f-4f05-8774-a0eae8e79677.png)
+![북마크저장화면](https://user-images.githubusercontent.com/103995985/175892759-74b9240d-52a9-42d4-b9db-cd87329b2909.png)
+
+- ** 팁에서 북마크 체크인 **
+  
+- ** 북마크 카테고리에 북마크목록 저장 **
+
+  
 
 - **요청 처리** :pushpin: [코드 확인](https://github.com/Integerous/goQuality/blob/b2c5e60761b6308f14eebe98ccdb1949de6c4b99/src/main/java/goQuality/integerous/controller/PostRestController.java#L55)
   - Controller에서는 요청을 화면단에서 넘어온 요청을 받고, Service 계층에 로직 처리를 위임합니다.
 
 - **결과 응답** :pushpin: [코드 확인]()
   - Service 계층에서 넘어온 로직 처리 결과(메세지)를 화면단에 응답해줍니다.
+  
+<br>
+### 4.4. 웹컨텐츠로 연결
+![카테고리화면](https://user-images.githubusercontent.com/103995985/175893463-f1fcca32-5122-486b-b2bc-b1a9cdede6ae.png)
+![웹뷰화면](https://user-images.githubusercontent.com/103995985/175893493-944f207a-7d5d-41c9-8c21-01bead041687.png)
 
-### 4.4. Service
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service1.png)
+- ** 
+  
 
 - **Http 프로토콜 추가 및 trim()** :pushpin: [코드 확인]()
   - 사용자가 URL 입력 시 Http 프로토콜을 생략하거나 공백을 넣은 경우,  
@@ -72,9 +99,23 @@
   - 컨텐츠에 이미지가 없을 경우, 미리 설정해둔 기본 이미지를 사용하고, 제목이 없을 경우 생략합니다.
 
 
-### 4.5. Repository
+### 4.5. 게시판 생성, 삭제, 수정
+  ![게시판](https://user-images.githubusercontent.com/103995985/175895032-983abde5-2ab1-451d-8d9a-63cad7b5331b.png) ![내가쓴게시글](https://user-images.githubusercontent.com/103995985/175895070-4c93fc71-82e6-4cc7-94a4-79c74cc220f2.png)
 
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_repo.png)
+  
+![게시글](https://user-images.githubusercontent.com/103995985/175895390-3aa7bb3b-d15e-4cf1-b489-a6f85a2a8f15.png) ![게시글수정삭제](https://user-images.githubusercontent.com/103995985/175895407-32d71d99-0b1b-4228-a873-b59321a2cdac.png)
+
+
+### 4.6. 댓글 기능
+![댓글1](https://user-images.githubusercontent.com/103995985/175895593-1042eeba-1939-4dfc-bd5c-259a7b79218f.png) ![댓글2](https://user-images.githubusercontent.com/103995985/175895614-c41b5e53-7fdd-4e4f-a0d2-3bd250810543.png)
+
+
+
+  
+
+
+
+
 
 - **컨텐츠 저장** :pushpin: [코드 확인]()
   - URL 유효성 체크와 이미지, 제목 파싱이 끝난 컨텐츠는 DB에 저장합니다.
