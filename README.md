@@ -45,8 +45,7 @@
 
 ### 4.1. 메인 화면 & 로그인 화면
   
-![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png)
-![로그인화면](https://user-images.githubusercontent.com/103995985/175879372-5719623a-9272-47ea-bbfc-098932ac8155.png)
+![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png) ![로그인화면](https://user-images.githubusercontent.com/103995985/175879372-5719623a-9272-47ea-bbfc-098932ac8155.png)
 
 
   - **요청 처리** :pushpin: [코드 확인]()
@@ -58,8 +57,7 @@
 - ** 앱 기본 화면 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/HomeFragment.kt)
 
 ### 4.2. 북마크 체크인
-![북마크화면](https://user-images.githubusercontent.com/103995985/175892726-69a23423-f00f-4f05-8774-a0eae8e79677.png)
-![북마크저장화면](https://user-images.githubusercontent.com/103995985/175892759-74b9240d-52a9-42d4-b9db-cd87329b2909.png)
+![북마크화면](https://user-images.githubusercontent.com/103995985/175892726-69a23423-f00f-4f05-8774-a0eae8e79677.png) ![북마크저장화면](https://user-images.githubusercontent.com/103995985/175892759-74b9240d-52a9-42d4-b9db-cd87329b2909.png)
 
 - **각각의 카테고리에 컨텐츠데이터 넣어주기 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/contentsList/ContentListActivity.kt)
   
@@ -67,8 +65,7 @@
 
   
 ### 4.4. 웹컨텐츠로 연결
-![카테고리화면](https://user-images.githubusercontent.com/103995985/175893463-f1fcca32-5122-486b-b2bc-b1a9cdede6ae.png)
-![웹뷰화면](https://user-images.githubusercontent.com/103995985/175893493-944f207a-7d5d-41c9-8c21-01bead041687.png)
+![카테고리화면](https://user-images.githubusercontent.com/103995985/175893463-f1fcca32-5122-486b-b2bc-b1a9cdede6ae.png) ![웹뷰화면](https://user-images.githubusercontent.com/103995985/175893493-944f207a-7d5d-41c9-8c21-01bead041687.png)
 
 - ** 스토어 이미지바 클릭시 웹뷰로 이동 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/StoreFragment.kt)
   
