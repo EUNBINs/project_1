@@ -45,12 +45,12 @@
 
 ### 4.1. 메인 화면 & 로그인 화면
   
-![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png)![로그인화면](https://user-images.githubusercontent.com/103995985/175879372-5719623a-9272-47ea-bbfc-098932ac8155.png)
+![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png)![메인화면](https://user-images.githubusercontent.com/103995985/175973297-a86adac7-b20f-4eee-a178-16ff35a2aa36.png)
 
-
+ 
 <br>
-- ** Auth 로그인 기능 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/auth/IntroActivity.kt) 
-
+- ** Auth 로그인 기능 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/auth/IntroActivity.kt)
+<br>
 파이어베이스에서 FirebaseAuth 객체의 공유 인스턴스를 가져와 익명로그인을 가능하게 하고, binding을 사용하여 각 버튼을 누를 시, 
 
 연결된 액티비티(로그인이나 회원가입)로 화면이 전환됩니다.
@@ -58,7 +58,7 @@
 로그인이 성공하게 되면, intent.flag를 통해 메인액티비티로 연결합니다.
 
 - ** 앱 기본 화면 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/HomeFragment.kt)
-<br>
+
 navigation 구현을 통해 하단 imageview 바 마다 각각의 fragment로 연결시켜줍니다.
 
 앱의 기본 메인화면이기 때문에 모든 카테고리와, 카테고리의 데이터, 게시판데이터들을 가져옵니다.
@@ -69,17 +69,26 @@ navigation 구현을 통해 하단 imageview 바 마다 각각의 fragment로 �
 ### 4.2. 북마크 체크인
 ![북마크화면](https://user-images.githubusercontent.com/103995985/175892726-69a23423-f00f-4f05-8774-a0eae8e79677.png) ![북마크저장화면](https://user-images.githubusercontent.com/103995985/175892759-74b9240d-52a9-42d4-b9db-cd87329b2909.png)
 
-- **각각의 카테고리에 컨텐츠데이터 넣어주기 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/contentsList/ContentListActivity.kt)
+- **각각의 카테고리에 콘텐츠데이터 넣어주기 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/contentsList/ContentListActivity.kt)   
   
-- ** 북마크 카테고리에 북마크목록 저장 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/BookmarkFragment.kt)
+Contents 데이터모델을 생성하고 Firebase database에 IF문을 활용하여 카테고리를 분류하여 database.getReference를 선언해 데이터를 넣어준다
+  
+recyclerview를 사용해 컨텐츠들을 Grid를 사용해 2열로 나열하여 보여준다. 여기서 IF문을 활용해 북마크 체크표시를 하게되면, firebase database에 데이터를 저장한다  
 
+  
+ 
+- ** 북마크 카테고리에 북마크목록 저장 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/BookmarkFragment.kt)
+북마크체크로 저장된 컨텐츠들은 북마크 액티비티에 저장되어 보여진다
+  
+콘텐츠Adapter 액티비티를 통해 intent.putExtra를 사용해 북마크 액티비티에서 컨텐츠 클릭시 해당 컨텐츠의 webUrl로 연결해준다.WebUrl은 ContentsShow 액티비티에서 보여준다
   
 ### 4.4. 웹컨텐츠로 연결
 ![카테고리화면](https://user-images.githubusercontent.com/103995985/175893463-f1fcca32-5122-486b-b2bc-b1a9cdede6ae.png) ![웹뷰화면](https://user-images.githubusercontent.com/103995985/175893493-944f207a-7d5d-41c9-8c21-01bead041687.png)
 
 - ** 스토어 이미지바 클릭시 웹뷰로 이동 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/0bb6ce92a040bf58e9b2b0db1d7115badff368dc/app/src/main/java/com/eunbin/mysolelife/fragments/StoreFragment.kt)
   
-  
+스토어 액티비티에서는 webView.loadUrl 사용해 ImageView 클릭시 해당Url로 연결된다. 따로 스토어주소가 준비되어 있지않아 네이버주소로 연결된다
+ 
 
 
 ### 4.5. 게시판 생성, 삭제, 수정
