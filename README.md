@@ -188,7 +188,7 @@ commentDataList.clear()
 <div markdown="1">
 
 
-~~~java
+~~~java 
        var view = convertView
   //          if(view == null) { // view 를 재활용하면서 생기는 이슈
         view = LayoutInflater.from(parent?.context).inflate(R.layout.board_list_item, parent,false)
@@ -201,78 +201,100 @@ commentDataList.clear()
 </details>
 
 </br>
+  
 
-## 6. 기억에 남았던 코드들
-<details>
-<summary>npm run dev 실행 오류</summary>
-<div markdown="1">
-
-
+  
 if (myUid.equals(writerUid)) {
                         binding.boardSettingIcon.isVisible = true
 
+## 6. 기억에 남았던 코드들
+ 
 
+
+<details>
+<summary> 해당Activity에서 binding 할때에는 반드시 해당 xml 전체를 layout으로 감싸줘야 한다 </summary>
+<div markdown="1">
+ 
+  
 </div>
 </details>
 
 <details>
-<summary>vue-devtools 크롬익스텐션 인식 오류 문제</summary>
+<summary>Calendar.getInstance() 을 활용</summary>
 <div markdown="1">
   
- -설명
-  
-</div>
-</details>
-
-<details>
-<summary>ElementUI input 박스에서 `v-on:keyup.enter="메소드명"`이 정상 작동 안하는 문제</summary>
-<div markdown="1">
-  
- -설명
+ -SimpleDateFormat을 활용해 한국 시간과 시간표시패턴을 표현할 수 있었다
+ -Locale 이란 사용자 언어 국가 및 장소 설정
  
 
 </div>
 </details>
 
 <details>
-<summary> Post 목록 출력시에 Member 객체 출력 에러 </summary>
+<summary> 리스트를 최신순으로 정렬하고 싶다면 reverse() 선언 </summary>
 <div markdown="1">
   
--설명
+-boardKeyList.reverse()
+ boardDataList.reverse()
 
   
 </div>
 </details>
     
 <details>
-<summary> 프로젝트를 git init으로 생성 후 발생하는 npm run dev/build 오류 문제 </summary>
+<summary> 안드로이드폰에서 이미지를 업로드하고 싶다면 manifest에서 external_storage권한 추가해줘야 한다 </summary>
 <div markdown="1">
   
--설명
+-
    
 </div>
 </details>    
 
 <details>
-<summary> 태그 선택후 등록하기 누를 때 `object references an unsaved transient instance - save the transient instance before flushing` 오류</summary>
+<summary>Activity를 호출하다 보면 중복문제가 발생할 수 있기때문에 startactivity(intent)보다 intent.flags를 활용하면
+ 중복을 방지하거나 흐름제어에 더 유용할 수 있다.</summary>
 <div markdown="1">
   
- -설명
+ -
 </div>
 </details>    
 
 <details>
-<summary> JSON: Infinite recursion (StackOverflowError)</summary>
-<div markdown="1">
   
+<summary>리스트를 업데이트할 수 있는 5가지 방법</summary>
+ - 리스트들의 삭제, 변경이 이루어지는 경우 업데이트를 해야한다 게시글리스트들을 reverse() 하였기에 전체업데이트를 실행
   
--
-        
+- 전체 업데이트 : notifyDataSetChanged
+ 
+- 변경 : notifyItemChanged / notifyItemRangeChanged
+ 
+- 추가 : notifyItemInserted / notifyItemRangeInserted
+ 
+- 삭제 : notifyItemRemoved / notifyItemRangeRemoved
+ 
+- 이동 : notifyItemMoved
+
+<div markdown="1>
+               
+               
 </div>
-</details>  
-    
+               
+</details>
     
 </br>
 
 ## 6. 회고 / 느낀점
->프로젝트 개발 회고 글: https://zuminternet.github.io/ZUM-Pilot-integer/
+자바를 공부하고, 안드로이드스튜디오를 사용해 작은 앱들을 만들어보면서 활용법을 익힌 후 처음으로 만든 프로젝트였던 만큼 설레는 출발이었고, 공을 많이 들였던 것 같습니다.
+Adapter나 recyclerView 는 아직까지도 사용할 때마다 헷갈리고, 익숙하지 못하지만 반복학습을 통해 빠르게 손에 익히고 싶은 마음이 컸습니다.              
+클래스의 새로운 인스턴스들을 접할때마 신기해하면서 코드를 작성한 순간이 몇몇 있는데, 더더욱 다양한 기술스택을 쌓아가고 싶습니다. 첫 발걸음이다 보니 오류가 났던 순간들을
+메모하지 못한게 2,3가지 있었는데 다행히 큰 문제는 아니었는지 구글링과 stackoveflow를 통해 많은 도움을 얻었고, 한가지 적어내지 못한 오류가 있다면, 위의 프로젝트 배포코드를
+비교하기 위하여 프로젝트를 오픈한적이 있는데, Gradle문제로 열리지 않았던 적이 있습니다. 초반에 검색을 통해 잘 나오지않아서 스페인유튜브를 보면서 번역하고, 오류를 고치려고           시도했던 기억이 남습니다. 
+               
+마지막엔 스택오버플로우의 도움으로 허무하게 해결되었지만 아직까지도 이 프로젝트 뿐만이 아니라 오류를 해결하기 위해 머리를 싸매는 순간이 많고,             
+해결안되는 시간이 길어지다보니 이대로 프로젝트를 엎어야하는건 아닌가, 라는 부담감과 압박감을 느끼게 되는데 이때 잠시 리프레쉬시간을 가지면서 산책이나 반려견과 데이트하고나서         다시 시도해보면 해결되는 순간도 있었던 것 같습니다. 압박감에서 벗어나서 나무가 아닌 숲을보는 시야를 기르는 것도 중요하다고 생각합니다.
+다음 프로젝트는 서버를 연동한 앱을 공부할 예정입니다.             
+
+Ended on June 28, 2022
+
+
+
