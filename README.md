@@ -144,12 +144,12 @@ Adapter를 이용해 database로부터 게시물로 comment 데이터를 불러�
 
 </br>
 
-## 5. 겪었던 오류들 
-### 5.1. 레이아웃에서 컬러적용이 되지 않았을 때
+## 4. 겪었던 오류들 
+### 4.1 레이아웃에서 컬러적용이 되지 않았을 때
 - res>values>themes에서 "Theme.AppCompat.Light" 로 바꿔주기
 
 <details>
-<summary><b>코드</b></summary>
+<summary><b>개선된 코드</b></summary>
 <div markdown="1">
 
 
@@ -164,7 +164,7 @@ Adapter를 이용해 database로부터 게시물로 comment 데이터를 불러�
 </details>
 
 
-### 5.2. 게시물을 수정했을 때, Firebase에 동일하게 2번 값이 저장되는 상황 발생
+### 4.2 게시물을 수정했을 때, Firebase에 동일하게 2번 값이 저장되는 상황 발생
 - 파이어베이스의 특성상, 데이터가 변경되면 데이터가 두 번 생성된다고 하였습니다.
   때문에 데이터리스트에 clear()를 선언하여, 기존데이터를 clear 해주고, 변경된 데이터와 함께 새로운 코드로 리셋해줍니다.
 <details>
@@ -180,7 +180,7 @@ commentDataList.clear()
 </div>
 </details>
 
-### 5.3. 게시물 작성 후 게시물 리스트순서가 뒤죽박죽 되는 상황 발생
+### 4.3. 게시물 작성 후 게시물 리스트순서가 뒤죽박죽 되는 상황 발생
 - view를 재활용하면서 생기게 된 이슈라고 합니다. 그래서 null을 주석처리 하였습니다.
 
 <details>
@@ -203,7 +203,7 @@ commentDataList.clear()
 </br> 
 
   
-## 6. 기억에 남았던 코드들
+## 5. 기억에 남았던 코드들
  
 
 
