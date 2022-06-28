@@ -45,7 +45,7 @@
 
 ### 4.1. 메인 화면 & 로그인 화면
   
-![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png)![메인화면](https://user-images.githubusercontent.com/103995985/175973297-a86adac7-b20f-4eee-a178-16ff35a2aa36.png)
+![스플래쉬화면](https://user-images.githubusercontent.com/103995985/175888653-7179700e-df5e-476c-ad8d-164c73c24bc9.png) ![메인화면](https://user-images.githubusercontent.com/103995985/175973297-a86adac7-b20f-4eee-a178-16ff35a2aa36.png)
 
 
 - ** Auth 로그인 기능 ** :pushpin: [코드 확인](https://github.com/EUNBINs/project_1/blob/master/app/src/main/java/com/eunbin/mysolelife/auth/IntroActivity.kt)
